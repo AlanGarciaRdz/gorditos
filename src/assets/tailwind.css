@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+    @apply py-2 px-4 rounded;
+}
+
+.btn-blue {
+    @apply bg-blue-500 text-white;
+}
+
+.btn-blue:hover {
+    @apply bg-blue-700;
+}
+
+.card {
+    @apply rounded overflow-hidden shadow-lg;
+}
+
+html {
+    /* border: solid 5px red; */
+}
+
+  @font-face {
+    font-family: 'Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("https://vet.brightcove.com/ve612-sendbird/fonts/PPNeueMontreal-Medium.otf") format("opentype");
+    
+  }

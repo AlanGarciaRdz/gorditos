@@ -1,4 +1,46 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+  @font-face {
+    font-family: "Neue";
+    src: url("../public/fonts/PPNeueMontreal-Medium.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: 'Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("https://vet.brightcove.com/ve612-sendbird/fonts/PPNeueMontreal-Medium.otf") format("opentype");
+    
+  }
+
+
+  body {
+    border: 5px solid red;
+    margin: 0;
+    font-family: 'Neue'; 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    /* font-family: 'PPF',      monospace; */
+  }
+
+  html {
+    font-family: 'Neue'; 
+  }
+
+  @layer base {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +52,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
