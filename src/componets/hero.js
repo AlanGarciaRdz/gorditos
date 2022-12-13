@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 import 'tw-elements';
 import rodo from '../assets/images/rodo.png'
 import rodo2 from '../assets/images/rodo2.png'
@@ -14,10 +14,18 @@ import stories from '../assets/images/stories.png'
 
 import Card from './cards';
 
-// import team0 from '../assets/images/team/0.png';
-// import team1 from '../assets/images/team/1.png';
-// import team2 from '../assets/images/team/2.png';
-// import team3 from '../assets/images/team/3.png';
+
+import storie1 from '../assets/images/stories/storie1.jpeg';
+import storie2 from '../assets/images/stories/storie2.jpeg';
+import storie3 from '../assets/images/stories/storie3.jpeg';
+import storie4 from '../assets/images/stories/storie4.jpeg';
+import storie5 from '../assets/images/stories/storie5.jpeg';
+
+
+import carousel1 from '../assets/images/carousel/1.jpeg'
+import carousel2 from '../assets/images/carousel/2.jpeg'
+import carousel3 from '../assets/images/carousel/3.jpeg'
+import carousel4 from '../assets/images/carousel/4.jpeg'
 
 
 import logo from '../assets/images/logo.png';
@@ -27,6 +35,46 @@ import logo from '../assets/images/logo.png';
 
 
 const Hero = () => {
+
+    const stories =
+    {
+        1: {
+            "currentimage": storie1,
+            "storieheader": "Primer Gordito",
+            "storiedescription": "1 Lorem ipsum dolor sit amet, con- sectetuer adipiscing elit, sed diam nonummy nibh.",
+            "storiecontent": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure"
+        },
+        2: {
+            "currentimage": storie2,
+            "storieheader": "Segundo Gordito",
+            "storiedescription": "2 Lorem ipsum dolor sit amet, con- sectetuer adipiscing elit, sed diam nonummy nibh.",
+            "storiecontent": "2 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure"
+        },
+        3: {
+            "currentimage": storie3,
+            "storieheader": "tercer Gordito",
+            "storiedescription": "3 Lorem ipsum dolor sit amet, con- sectetuer adipiscing elit, sed diam nonummy nibh.",
+            "storiecontent": "3 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure"
+        },
+        4: {
+            "currentimage": storie4,
+            "storieheader": "cuarto Gordito",
+            "storiedescription": "4 Lorem ipsum dolor sit amet, con- sectetuer adipiscing elit, sed diam nonummy nibh.",
+            "storiecontent": "4 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure"
+        },
+        5: {
+            "currentimage": storie5,
+            "storieheader": "quinto Gordito",
+            "storiedescription": "5 Lorem ipsum dolor sit amet, con- sectetuer adipiscing elit, sed diam nonummy nibh.",
+            "storiecontent": "5 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure"
+        }
+    }
+
+    let [currentimage, setCurrentImage] = useState(stories[1].currentimage);
+    let [storieheader, setStorieHeader] = useState(stories[1].storieheader);
+    let [storiedescription, setStorieDescription] = useState(stories[1].storiedescription);
+    let [storiecontent, setStorieContent] = useState(stories[1].storiecontent);
+
     const logoImg = {
         height: `87px`,
         marginTop: `-14px`
@@ -70,6 +118,16 @@ const Hero = () => {
     const customborderRound = {
         borderRadius: '3rem',
     }
+
+    const updateStorie = (i) => {
+        
+        
+        setCurrentImage(stories[i].currentimage)
+        setStorieHeader(stories[i].storieheader)
+        setStorieDescription(stories[i].storiedescription)
+        setStorieContent(stories[i].storiecontent)
+        
+      };
 
 
     return (
@@ -144,16 +202,16 @@ const Hero = () => {
 
                 <div
                     id="carouselExampleCrossfade"
-                    class="carousel slide carousel-fade relative px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24"
+                    className="carousel slide carousel-fade relative px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24"
                     data-bs-ride="carousel"
                     
                 >
-                    <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4" style={customborderRound}>
+                    <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4" style={customborderRound}>
                         <button
                             type="button"
                             data-bs-target="#carouselExampleCrossfade"
                             data-bs-slide-to="0"
-                            class="active"
+                            className="active"
                             aria-current="true"
                             aria-label="Slide 1"
                         ></button>
@@ -170,46 +228,53 @@ const Hero = () => {
                             aria-label="Slide 3"
                         ></button>
                     </div>
-                    <div class="carousel-inner relative w-full overflow-hidden">
-                        <div class="carousel-item active float-left w-full">
+                    <div className="carousel-inner relative w-full overflow-hidden">
+                        <div className="carousel-item active float-left w-full">
                             <img
-                                src="https://www.rodopadilla.com/img/pages/el-taller.jpg?1578598766"
-                                class="block w-full"
-                                alt="Wild Landscape"
+                                src={carousel1}
+                                className="block w-full"
+                                alt="1"
                             />
                         </div>
-                        <div class="carousel-item float-left w-full">
+                        <div className="carousel-item float-left w-full">
                             <img
-                                src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
-                                class="block w-full"
-                                alt="Camera"
+                                 src={carousel2}
+                                className="block w-full"
+                                alt="2"
                             />
                         </div>
-                        <div class="carousel-item float-left w-full">
+                        <div className="carousel-item float-left w-full">
                             <img
-                                src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp"
-                                class="block w-full"
-                                alt="Exotic Fruits"
+                                 src={carousel3}
+                                className="block w-full"
+                                alt="3"
+                            />
+                        </div>
+                        <div className="carousel-item float-left w-full">
+                            <img
+                                 src={carousel4}
+                                className="block w-full"
+                                alt="4"
                             />
                         </div>
                     </div>
                     <button
-                        class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+                        className="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
                         type="button"
                         data-bs-target="#carouselExampleCrossfade"
                         data-bs-slide="prev"
                     >
-                        <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                        <span className="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
                     </button>
                     <button
-                        class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+                        className="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
                         type="button"
                         data-bs-target="#carouselExampleCrossfade"
                         data-bs-slide="next"
                     >
-                        <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                        <span className="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
                     </button>
                 </div>
 
@@ -265,11 +330,12 @@ const Hero = () => {
             </section>
 
 
-            {/* carousel */}
+            {/* carousel https://robkendal.co.uk/blog/how-to-build-a-multi-image-carousel-in-react-and-tailwind */}
             <div id="carousel-section">
                 <div id="rodo_nombre" className="flex flex-row">
                     <div className='basis-1/2 texto-gorditos text-subheader font-bold   grid place-items-center text-red-600'>
                         GORDITOS ©
+                        
                     </div>
                     <div className='basis-1/4'></div>
                     <div className='basis-1/4 texto-gorditos  grid place-items-center text-red-600'>
@@ -293,14 +359,14 @@ const Hero = () => {
                     </div>
 
 
-                    <div class="flex justify-center w-full max-w-2xl gap-2 mx-auto mt-6">
+                    <div className="flex justify-center w-full max-w-2xl gap-2 mx-auto mt-6">
 
                         <div className='text-white'> Lorem ipsum dolor sit amet, con- sectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
 
-                        <div class="text-white"> Lorem ipsum dolor sit amet, con- sectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+                        <div className="text-white"> Lorem ipsum dolor sit amet, con- sectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
                     </div>
 
-                    <div class="flex justify-center w-full max-w-2xl gap-3 mx-auto mt-6">
+                    <div className="flex justify-center w-full max-w-2xl gap-3 mx-auto mt-6">
 
 
                         <div className='phase1'>
@@ -340,7 +406,7 @@ const Hero = () => {
                                     <div>
                                         <div className="relative w-full max-w-lg">
                                             <div className="relative">
-                                                <img alt="stories" prop="stories" src={stories} className="" />
+                                                <img alt="stories" prop="stories" src={currentimage} className="" />
                                             </div>
                                         </div>
                                     </div>
@@ -356,22 +422,31 @@ const Hero = () => {
                                     <h2
                                         className="mb-8  text-storieheader font-bold tracking-widest text-brand-highlight uppercase text-yellow-400"
                                     >
-                                        Gordito 1
+                                        {storieheader}
                                     </h2>
 
                                     <p
                                         className="mb-8 text-2xl lg:text-base leading-relaxed text-left text-yellow-400"
                                     >
-                                        Lorem ipsum dolor sit amet, con- sectetuer adipiscing elit, sed diam nonummy nibh.
+                                         {storiedescription}
                                     </p>
 
                                     <p
                                         className="mb-8 text-2xl lg:text-base leading-relaxed text-left text-white"
                                     >
-                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
+                                        {storiecontent}
                                     </p>
 
-                                    <div className="flex-col mt-0 lg:mt-6 max-w-7xl sm:flex"></div>
+                                    <div className="grid grid-rows-1 grid-flow-col gap-2">
+                                    
+                                        
+                                        <img alt="stories" prop="stories" src={storie1} className="px-1.5 transition duration-100 hover:scale-105" onClick={() => updateStorie(1)} />
+                                        <img alt="stories" prop="stories" src={storie2} className="px-1.5 transition duration-100 hover:scale-105" onClick={() => updateStorie(2)} />
+                                        <img alt="stories" prop="stories" src={storie3} className="px-1.5 transition duration-100 hover:scale-105" onClick={() => updateStorie(3)} />
+                                        <img alt="stories" prop="stories" src={storie4} className="px-1.5 transition duration-100 hover:scale-105" onClick={() => updateStorie(4)} />
+                                        <img alt="stories" prop="stories" src={storie5} className="px-1.5 transition duration-100 hover:scale-105" onClick={() => updateStorie(5)} />
+                                    
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -431,12 +506,12 @@ const Hero = () => {
                     </div>
 
 
-                    <div class="grid grid-cols-1 gap-1 justify-center w-full max-w-2xl mx-auto mt-6">
+                    <div className="grid grid-cols-1 gap-1 justify-center w-full max-w-2xl mx-auto mt-6">
 
-                        <div class="accordion" id="accordionExample5">
-                            <div class="accordion-item   border-sky-700">
-                                <h2 class="accordion-header mb-0" id="headingOne5">
-                                    <button class="
+                        <div className="accordion" id="accordionExample5">
+                            <div className="accordion-item   border-sky-700">
+                                <h2 className="accordion-header mb-0" id="headingOne5">
+                                    <button className="
         accordion-button
         relative
         flex
@@ -454,8 +529,8 @@ const Hero = () => {
                                         Lorem ipsum dolor sit amet, consec adipiscing elit?
                                     </button>
                                 </h2>
-                                <div id="collapseOne5" class="accordion-collapse collapse show" aria-labelledby="headingOne5">
-                                    <div class="accordion-body py-4 px-5">
+                                <div id="collapseOne5" className="accordion-collapse collapse show" aria-labelledby="headingOne5">
+                                    <div className="accordion-body py-4 px-5">
                                         <strong>This is the first item's accordion body.</strong> It is shown by default,
                                         until the collapse plugin adds the appropriate classes that we use to style each
                                         element. These classes control the overall appearance, as well as the showing and
@@ -465,9 +540,9 @@ const Hero = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion-item   border-sky-700">
-                                <h2 class="accordion-header mb-0" id="headingTwo5">
-                                    <button class="
+                            <div className="accordion-item   border-sky-700">
+                                <h2 className="accordion-header mb-0" id="headingTwo5">
+                                    <button className="
         accordion-button
         collapsed
         relative
@@ -487,8 +562,8 @@ const Hero = () => {
                                         Lorem ipsum dolor sit amet, consec adipiscing elit?
                                     </button>
                                 </h2>
-                                <div id="collapseTwo5" class="accordion-collapse collapse" aria-labelledby="headingTwo5">
-                                    <div class="accordion-body py-4 px-5">
+                                <div id="collapseTwo5" className="accordion-collapse collapse" aria-labelledby="headingTwo5">
+                                    <div className="accordion-body py-4 px-5">
                                         <strong>This is the second item's accordion body.</strong> It is hidden by default,
                                         until the collapse plugin adds the appropriate classes that we use to style each
                                         element. These classes control the overall appearance, as well as the showing and
@@ -498,9 +573,9 @@ const Hero = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion-item  border-sky-700">
-                                <h2 class="accordion-header mb-0" id="headingThree5">
-                                    <button class="
+                            <div className="accordion-item  border-sky-700">
+                                <h2 className="accordion-header mb-0" id="headingThree5">
+                                    <button className="
         accordion-button
         collapsed
         relative
@@ -521,8 +596,8 @@ const Hero = () => {
                                         Lorem ipsum dolor sit amet, consec adipiscing elit?
                                     </button>
                                 </h2>
-                                <div id="collapseThree5" class="accordion-collapse collapse" aria-labelledby="headingThree5">
-                                    <div class="accordion-body py-4 px-5">
+                                <div id="collapseThree5" className="accordion-collapse collapse" aria-labelledby="headingThree5">
+                                    <div className="accordion-body py-4 px-5">
                                         <strong>This is the third item's accordion body.</strong> It is hidden by default,
                                         until the collapse plugin adds the appropriate classes that we use to style each
                                         element. These classes control the overall appearance, as well as the showing and
@@ -539,17 +614,17 @@ const Hero = () => {
                     <div id="footer" className=" flex flex-row justify-between z-10 text-white bg-transparent">
 
                         <div className="p-4">
-                            <div class="font-extrabold tracking-widest text-xl"><img alt="logoimg1" prop="logoim1g" style={logoImg} src={logo}  /></div>
+                            <div className="font-extrabold tracking-widest text-xl"><img alt="logoimg1" prop="logoim1g" style={logoImg} src={logo}  /></div>
                         </div>
 
-                        <div class="p-4 hidden md:flex flex-row justify-between font-bold">
-                            <a id="hide-after-click" href="#about" class="mx-4 text-lg ">Gorditos</a>
-                            <a href="#rodo" class="mx-4 text-lg ">Rodo Padilla</a>
-                            <a href="#roadmap" class="mx-4 text-lg ">Roadmap</a>
-                            <a href="#roadmap" class="mx-4 text-lg ">Stories</a>
-                            <a href="#team" class="mx-4 text-lg ">Team</a>
-                            <a href="#faq" class="mx-4 text-lg ">FAQ</a>
-                            <a href="#compra" class="mx-4 text-lg ">Compra tu gordito</a>
+                        <div className="p-4 hidden md:flex flex-row justify-between font-bold">
+                            <a id="hide-after-click" href="#about" className="mx-4 text-lg ">Gorditos</a>
+                            <a href="#rodo" className="mx-4 text-lg ">Rodo Padilla</a>
+                            <a href="#roadmap" className="mx-4 text-lg ">Roadmap</a>
+                            <a href="#roadmap" className="mx-4 text-lg ">Stories</a>
+                            <a href="#team" className="mx-4 text-lg ">Team</a>
+                            <a href="#faq" className="mx-4 text-lg ">FAQ</a>
+                            <a href="#compra" className="mx-4 text-lg ">Compra tu gordito</a>
                         </div>
 
                     </div>
